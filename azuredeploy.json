@@ -5,32 +5,32 @@
     "adminUsername": {
       "type": "string",
       "metadata": {
-        "description": "Username for the Virtual Machine."
+        "description": "Username with sudo privileges for the VM."
       }
     },
     "dnsNameForPublicIP": {
       "type": "string",
       "metadata": {
-        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+        "description": "Your subdomain name to access the Virtual Machine."
       }
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_F1",
+      "defaultValue": "Standard B1s",
       "metadata": {
-        "description": "VM size for the Docker host."
+        "description": "VM resources size."
       }
     },
     "ubuntuOSVersion": {
       "type": "string",
-      "defaultValue": "18.04-LTS",
+      "defaultValue": "20.04-LTS",
       "metadata": {
-        "description": "The Ubuntu version for deploying the Docker containers. This will pick a fully patched image of this given Ubuntu version. Allowed values: 15.10, 16.04.0-LTS, 18.04-LTS"
+        "description": "The Ubuntu version. This will pick a fully patched image of this given Ubuntu version. Allowed values: 16.04-LTS, 18.04-LTS, 20.04-LTS"
       },
       "allowedValues": [
-        "14.04.5-LTS",
         "16.04-LTS",
-        "18.04-LTS"
+        "18.04-LTS",
+        "20.04-LTS"
       ]
     },
     "location": {
@@ -42,7 +42,7 @@
     },
     "authenticationType": {
       "type": "string",
-      "defaultValue": "sshPublicKey",
+      "defaultValue": "password",
       "allowedValues": [
         "sshPublicKey",
         "password"
@@ -67,13 +67,13 @@
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "diskStorageType": "Standard_LRS",
-    "publicIPAddressName": "myPublicIPD",
+    "publicIPAddressName": "trainingPublicIPD",
     "publicIPAddressType": "Dynamic",
-    "vmName": "MyDockerVM",
+    "vmName": "repo2dockerVM",
     "virtualNetworkName": "MyVNETD",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
     "linuxConfiguration": {
-      "disablePasswordAuthentication": true,
+      "disablePasswordAuthentication": false,
       "ssh": {
         "publicKeys": [
           {
