@@ -45,5 +45,7 @@ conda update conda -y
 conda update anaconda -y
 python3 -m pip install jupyter-repo2docker
 mkdir -p $HOME/repositories
+sudo apt install default-jdk -y
+echo 'alias jshell="jshell --start PRINTING"' >> $HOME/.bashrc
+source $HOME/.bashrc
 exit 0
-
