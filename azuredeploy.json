@@ -4,6 +4,7 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
+      "defaultValue": "training",
       "metadata": {
         "description": "Username with sudo privileges for the VM."
       }
@@ -12,13 +13,6 @@
       "type": "string",
       "metadata": {
         "description": "Your subdomain name to access the Virtual Machine."
-      }
-    },
-    "vmSize": {
-      "type": "string",
-      "defaultValue": "Standard B1s",
-      "metadata": {
-        "description": "VM resources size."
       }
     },
     "location": {
@@ -40,7 +34,8 @@
       }
     },
     "adminPasswordOrKey": {
-      "type": "securestring",
+      "type": "string",
+      "defaultValue": "training",
       "metadata": {
         "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
       }
@@ -173,7 +168,7 @@
       ],
       "properties": {
         "hardwareProfile": {
-          "vmSize": "[parameters('vmSize')]"
+          "vmSize": "Standard B1s"
         },
         "osProfile": {
           "computerName": "[variables('vmName')]",
