@@ -45,14 +45,13 @@
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "nicName": "myVMNicD",
-    "extensionName": "DockerExtension",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "diskStorageType": "Standard_LRS",
     "publicIPAddressName": "trainingPublicIPD",
     "publicIPAddressType": "Dynamic",
-    "vmName": "repo2dockerVM",
+    "vmName": "trainingVM",
     "virtualNetworkName": "MyVNETD",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
     "linuxConfiguration": {
@@ -197,21 +196,6 @@
             }
           ]
         }
-      }
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'),'/', variables('extensionName'))]",
-      "apiVersion": "2019-12-01",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-      ],
-      "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "DockerExtension",
-        "typeHandlerVersion": "1.0",
-        "autoUpgradeMinorVersion": true
       }
     }
   ]
