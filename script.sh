@@ -14,8 +14,8 @@ if [ `whoami` != $USER ]
 then 
         sudo useradd -d /home/$USER -m -s /bin/bash -p $(echo "${USER}" | openssl passwd -1 -stdin) $USER
         sudo usermod -aG sudo $USER
+        sudo su - $USER
 fi
-sudo su - $USER
 sudo systemctl stop apparmor
 sudo systemctl disable apparmor
 sudo ufw disable
