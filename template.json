@@ -3,81 +3,58 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "value": "francecentral"
+            "type": "string"
         },
         "networkInterfaceName": {
-            "value": "training485"
+            "type": "string"
         },
         "networkSecurityGroupName": {
-            "value": "training-nsg"
+            "type": "string"
         },
         "networkSecurityGroupRules": {
-            "value": [
-                {
-                    "name": "SSH",
-                    "properties": {
-                        "priority": 300,
-                        "protocol": "TCP",
-                        "access": "Allow",
-                        "direction": "Inbound",
-                        "sourceAddressPrefix": "*",
-                        "sourcePortRange": "*",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "22"
-                    }
-                }
-            ]
+            "type": "array"
         },
         "subnetName": {
-            "value": "default"
+            "type": "string"
         },
         "virtualNetworkName": {
-            "value": "training_group-vnet"
+            "type": "string"
         },
         "addressPrefixes": {
-            "value": [
-                "10.1.0.0/24"
-            ]
+            "type": "array"
         },
         "subnets": {
-            "value": [
-                {
-                    "name": "default",
-                    "properties": {
-                        "addressPrefix": "10.1.0.0/24"
-                    }
-                }
-            ]
+            "type": "array"
         },
         "publicIpAddressName": {
-            "value": "training-ip"
+            "type": "string"
         },
         "publicIpAddressType": {
-            "value": "Dynamic"
+            "type": "string"
         },
         "publicIpAddressSku": {
-            "value": "Basic"
+            "type": "string"
         },
         "virtualMachineName": {
-            "value": "training"
+            "type": "string"
         },
         "virtualMachineComputerName": {
-            "value": "training"
+            "type": "string"
         },
         "virtualMachineRG": {
-            "value": "training_group"
+            "type": "string"
         },
         "osDiskType": {
-            "value": "Premium_LRS"
+            "type": "string"
         },
         "virtualMachineSize": {
-            "value": "Standard_B1s"
+            "type": "string"
         },
         "adminUsername": {
-            "value": "training"
+            "type": "string"
         },
         "adminPassword": {
-            "value": null
+            "type": "secureString"
         }
     },
     "variables": {
