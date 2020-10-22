@@ -33,6 +33,9 @@ bash $ANACONDA_INSTALL_SCRIPT -b -p $HOME/anaconda
 sudo rm -f $ANACONDA_INSTALL_SCRIPT
 sudo ln -sfn /usr/bin/python3.6 /usr/bin/python3
 eval "$($HOME/anaconda/bin/conda shell.bash hook)"
+conda init
+conda update conda -y
+conda update anaconda -y
 python3 -m pip install jupyter-repo2docker
 mkdir -p $HOME/repositories
 exit 0
