@@ -21,7 +21,7 @@ sudo systemctl enable docker
 sudo useradd -d /home/$USER -m -s /bin/bash -p $(echo "${USER}" | openssl passwd -1 -stdin) $USER
 sudo usermod -aG sudo $USER
 sudo usermod -aG docker $USER
-LN=`sed -n '/%sudo/=' /etc/sudoers
+LN=`sed -n '/%sudo/=' /etc/sudoers`
 sudo sed -i "${LN}s/ ALL/ NOPASSWD:ALL/g" /etc/sudoers
 sudo apt install curl -y
 sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
