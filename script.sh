@@ -10,6 +10,7 @@ sudo ufw disable
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt autoremove -y
+sudo apt install vim -y
 sudo apt install git -y
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
