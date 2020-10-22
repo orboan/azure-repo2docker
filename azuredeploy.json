@@ -220,7 +220,7 @@
            "timestamp":22102020          
         },
         "protectedSettings": {
-           "commandToExecute": "script.sh",           
+           "commandToExecute": "./script.sh",           
            "fileUris": ["https://raw.githubusercontent.com/orboan/azure-repo2docker/master/script.sh"]
         }
       }
