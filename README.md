@@ -1,16 +1,7 @@
-# Simple deployment of an Ubuntu VM with Docker
+# Simple deployment of an Ubuntu VM with training tools for programming
 
-![Azure Public Test Date](https://azurequickstartsservice.blob.core.windows.net/badges/docker-simple-on-ubuntu/PublicLastTestDate.svg)
-![Azure Public Test Result](https://azurequickstartsservice.blob.core.windows.net/badges/docker-simple-on-ubuntu/PublicDeployment.svg)
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Forboan%2Fazure-repo2docker%2Fmaster%2Fazuredeploy.json)
 
-![Azure US Gov Last Test Date](https://azurequickstartsservice.blob.core.windows.net/badges/docker-simple-on-ubuntu/FairfaxLastTestDate.svg)
-![Azure US Gov Last Test Result](https://azurequickstartsservice.blob.core.windows.net/badges/docker-simple-on-ubuntu/FairfaxDeployment.svg)
 
-![Best Practice Check](https://azurequickstartsservice.blob.core.windows.net/badges/docker-simple-on-ubuntu/BestPracticeResult.svg)
-![Cred Scan Check](https://azurequickstartsservice.blob.core.windows.net/badges/docker-simple-on-ubuntu/CredScanResult.svg)
-
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdocker-simple-on-ubuntu%2Fazuredeploy.json)
-[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdocker-simple-on-ubuntu%2Fazuredeploy.json) 
-
-This template allows you to deploy an Ubuntu VM with Docker (using the Docker Extension) installed.
-You can run `docker` commands by connecting to the virtual machine with SSH.
+This template allows you to deploy an Ubuntu 20.04 LTS VM with docker, docker-compose, repo2docker, conda, git and jdk11 installed.
+You can connect to the virtual machine with SSH.
