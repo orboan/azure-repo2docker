@@ -43,6 +43,7 @@ eval "$($HOME/anaconda/bin/conda shell.bash hook)"
 conda init
 conda update conda -y
 conda update anaconda -y
+conda install -c conda-forge ruamel.yaml -y
 python3 -m pip install jupyter-repo2docker
 mkdir -p $HOME/repositories
 sudo apt install default-jdk -y
