@@ -26,7 +26,7 @@ sudo apt install vim -y
 sudo apt install git -y
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt update -y
 sudo apt install docker-ce -y
 sudo systemctl enable docker
@@ -39,7 +39,6 @@ cd /tmp
 curl -O $ANACONDA_URL
 bash $ANACONDA_INSTALL_SCRIPT -b -p $HOME/anaconda
 sudo rm -f $ANACONDA_INSTALL_SCRIPT
-sudo ln -sfn /usr/bin/python3.6 /usr/bin/python3
 eval "$($HOME/anaconda/bin/conda shell.bash hook)"
 conda init
 conda update conda -y
