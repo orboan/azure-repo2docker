@@ -1,9 +1,9 @@
 {
   "$schema": "https://aka.ms/azure-quickstart-templates-metadata-schema#",
   "type": "QuickStart",
-  "itemDisplayName": "Deploy an Ubuntu VM with repo2docker",
-  "description": "This template allows you to deploy an Ubuntu VM with repo2docker. You can later SSH into the VM and use repo2docker.",
-  "summary": "This deploys an Ubuntu VM with reo2docker",
+  "itemDisplayName": "Deploy an Ubuntu VM with repo2docker, conda and jdk11",
+  "description": "This template allows you to deploy an Ubuntu VM with repo2docker, conda and jdk11. You can later SSH into the VM.",
+  "summary": "This deploys an Ubuntu VM with repo2docker, conda and jdk11",
   "githubUsername": "orboan",
   "dateUpdated": "2020-10-20",
   "environments": ["AzureCloud"]
