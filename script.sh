@@ -35,6 +35,7 @@ sudo apt install curl -y
 sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo apt install software-properties-common -y
+sudo apt install python3-pip -y
 cd /tmp
 curl -O $ANACONDA_URL
 bash $ANACONDA_INSTALL_SCRIPT -b -p $HOME/anaconda
@@ -45,6 +46,7 @@ conda update conda -y
 conda update anaconda -y
 conda install -c conda-forge ruamel.yaml -y
 python3 -m pip install jupyter-repo2docker
+export PATH=$PATH:$HOME/.local/bin
 mkdir -p $HOME/repositories
 sudo apt install default-jdk -y
 echo 'alias jshell="jshell --start PRINTING"' >> $HOME/.bashrc
