@@ -179,7 +179,7 @@
                     "osDisk": {
                         "createOption": "fromImage",
                         "managedDisk": {
-                            "storageAccountType": "[parameters('osDiskType')]"
+                            "storageAccountType": "Premium_LRS"
                         }
                     },
                     "imageReference": {
