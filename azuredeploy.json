@@ -52,7 +52,7 @@
     "publicIPAddressName": "trainingPublicIPD",
     "publicIPAddressType": "Dynamic",
     "vmName": "trainingVM",
-    "virtualNetworkName": "MyVNETD",
+    "virtualNetworkName": "trainingVNETD",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
     "linuxConfiguration": {
       "disablePasswordAuthentication": false,
