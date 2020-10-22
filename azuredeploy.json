@@ -44,6 +44,7 @@
   "variables": {
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
+    "extensionName": "ProvisionBashScript",
     "nicName": "myVMNicD",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
@@ -195,6 +196,32 @@
               "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
             }
           ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(variables('vmName'),'/', variables('extensionName'))]",
+      "apiVersion": "2019-12-01",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+      ],
+      "tags": {
+        "displayName": "[concat(variables('vmName'),'/', variables('extensionName'))]"
+      },
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.1",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+           "skipDos2Unix":false,
+           "timestamp":22102020          
+        },
+        "protectedSettings": {
+           "commandToExecute": "bash script.sh",           
+           "fileUris": ["https://raw.githubusercontent.com/orboan/azure-repo2docker/master/script.sh"]
         }
       }
     }
