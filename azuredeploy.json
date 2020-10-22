@@ -48,7 +48,7 @@
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
-    "diskStorageType": "Standard_LRS",
+    "diskStorageType": "Premium_LRS",
     "publicIPAddressName": "trainingPublicIPD",
     "publicIPAddressType": "Dynamic",
     "vmName": "trainingVM",
@@ -176,7 +176,7 @@
           "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
         },
                 "storageProfile": {
-                    "osDisk": {
+                    "osDiskType": {
                         "createOption": "fromImage",
                         "managedDisk": {
                             "storageAccountType": "Premium_LRS"
