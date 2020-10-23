@@ -53,9 +53,9 @@ eval "$($HOME/anaconda/bin/conda shell.bash hook)"
 conda init
 conda update conda -y
 conda update anaconda -y
-conda install -c conda-forge ruamel.yaml -y
 python3 -m pip install jupyter-repo2docker
 export PATH=$PATH:$HOME/.local/bin
+conda install -c conda-forge ruamel.yaml -y
 mkdir -p $HOME/repositories
 EOF
 sudo apt install default-jdk -y
