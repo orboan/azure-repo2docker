@@ -67,6 +67,7 @@ echo 'alias jshell="jshell --start PRINTING"' >> $HOME/.bashrc
 source $HOME/.bashrc
 cd /tmp
 su -c "cd $HOME && $HOME/anaconda/bin/conda config --add channels conda-forge && $HOME/anaconda/bin/conda create --name scijava scijava-jupyter-kernel -y" $USER
+su -c "cd $HOME && eval \"$($HOME/anaconda/bin/conda shell.bash hook)\" && conda activate scijava; conda install -c anaconda jupyter -y" $USER
 su $USER <<'EOF'
 IJAVA_VERSION=1.3.0
 wget https://github.com/SpencerPark/IJava/releases/download/v${IJAVA_VERSION}/ijava-${IJAVA_VERSION}.zip
