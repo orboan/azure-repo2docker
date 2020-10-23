@@ -13,7 +13,12 @@ LN=`sudo sed -n '/%sudo/=' /etc/sudoers`
 sudo sed -i "${LN}s/ ALL/ NOPASSWD:ALL/g" /etc/sudoers
 if [ `whoami` != $USER ]
 then 
-        sudo useradd -d /home/$USER -m -s /bin/bash -p $(echo "${USER}" | openssl passwd -1 -stdin) $USER
+        if `sudo useradd -d /home/$USER -m -s /bin/bash -p $(echo "${USER}" | openssl passwd -1 -stdin) $USER`; then
+        echo "User ${USER} added and password set"
+        else
+        echo "$USER:$USER" | sudo chpasswd
+        echo "Password changed for user ${USER}"
+        fi
         sudo usermod -aG sudo $USER
         sudo su - $USER
 fi
@@ -38,17 +43,17 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo apt install software-properties-common -y
 sudo apt install python3-pip -y
 cd /tmp
-curl -O $ANACONDA_URL
-bash $ANACONDA_INSTALL_SCRIPT -b -p $HOME/anaconda
+su -c "curl -O $ANACONDA_URL" $USER
+su -c "bash $ANACONDA_INSTALL_SCRIPT -b -p $HOME/anaconda" $USER
 sudo rm -f $ANACONDA_INSTALL_SCRIPT
 eval "$($HOME/anaconda/bin/conda shell.bash hook)"
-conda init
-conda update conda -y
-conda update anaconda -y
-conda install -c conda-forge ruamel.yaml -y
-python3 -m pip install jupyter-repo2docker
+su -c "conda init" $USER
+su -c "conda update conda -y" $USER
+su -c "conda update anaconda -y" $USER
+su -c "conda install -c conda-forge ruamel.yaml -y" $USER
+su -c "python3 -m pip install jupyter-repo2docker" $USER
 export PATH=$PATH:$HOME/.local/bin
-mkdir -p $HOME/repositories
+su -c "mkdir -p $HOME/repositories" $USER
 sudo apt install default-jdk -y
 echo 'alias jshell="jshell --start PRINTING"' >> $HOME/.bashrc
 source $HOME/.bashrc
