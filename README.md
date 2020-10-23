@@ -4,4 +4,6 @@
 
 
 This template allows you to deploy an Ubuntu 20.04 LTS VM with docker, docker-compose, repo2docker, conda, git, jdk11, jshell, jupyter and jupyter-lab installed.
-You can connect to the virtual machine with SSH.
+You can connect to the virtual machine with SSH. Port 22 is accessible.
+
+This is meant only for development / training purposes. Port 8888 is accessible for notebooks.
