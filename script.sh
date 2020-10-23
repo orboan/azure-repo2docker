@@ -3,8 +3,6 @@ USER=training
 HOME=/home/$USER
 DOCKER_COMPOSE_VERSION=1.27.4
 PYTHON_VERSION=3.8
-ANACONDA_INSTALL_SCRIPT=Anaconda3-2020.07-Linux-x86_64.sh
-ANACONDA_URL=https://repo.anaconda.com/archive/$ANACONDA_INSTALL_SCRIPT
 if [ `whoami` == $USER ]
 then
         echo "$USER:$USER" | sudo chpasswd
@@ -43,17 +41,23 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo apt install software-properties-common -y
 sudo apt install python3-pip -y
 cd /tmp
-su -c "curl -O $ANACONDA_URL" $USER
-su -c "bash $ANACONDA_INSTALL_SCRIPT -b -p $HOME/anaconda" $USER
+su $USER <<'EOF'
+USER=training
+HOME=/home/$USER
+ANACONDA_INSTALL_SCRIPT=Anaconda3-2020.07-Linux-x86_64.sh
+ANACONDA_URL=https://repo.anaconda.com/archive/$ANACONDA_INSTALL_SCRIPT
+curl -O $ANACONDA_URL
+bash $ANACONDA_INSTALL_SCRIPT -b -p $HOME/anaconda
 sudo rm -f $ANACONDA_INSTALL_SCRIPT
 eval "$($HOME/anaconda/bin/conda shell.bash hook)"
-su -c "conda init" $USER
-su -c "conda update conda -y" $USER
-su -c "conda update anaconda -y" $USER
-su -c "conda install -c conda-forge ruamel.yaml -y" $USER
-su -c "python3 -m pip install jupyter-repo2docker" $USER
+conda init
+conda update conda -y
+conda update anaconda -y
+conda install -c conda-forge ruamel.yaml -y
+python3 -m pip install jupyter-repo2docker
 export PATH=$PATH:$HOME/.local/bin
-su -c "mkdir -p $HOME/repositories" $USER
+mkdir -p $HOME/repositories
+EOF
 sudo apt install default-jdk -y
 echo 'alias jshell="jshell --start PRINTING"' >> $HOME/.bashrc
 source $HOME/.bashrc
