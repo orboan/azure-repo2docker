@@ -57,7 +57,8 @@ python3 -m pip install jupyter-repo2docker
 export PATH=$PATH:$HOME/.local/bin
 mkdir -p $HOME/repositories
 EOF
-su -c "conda install -c conda-forge ruamel.yaml -y" $USER
+python3 -m pip install jupyter-repo2docker
+su -c "cd $HOME && $HOME/anaconda/bin/conda install -c conda-forge ruamel.yaml -y" $USER
 sudo apt install default-jdk -y
 echo 'alias jshell="jshell --start PRINTING"' >> $HOME/.bashrc
 source $HOME/.bashrc
