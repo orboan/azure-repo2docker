@@ -3,7 +3,7 @@
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Forboan%2Fazure-repo2docker%2Fmaster%2Fazuredeploy.json)
 
 
-This template allows you to deploy an Ubuntu 20.04 LTS VM with docker, docker-compose, repo2docker, conda, git, jdk11, jshell, jupyter and jupyter-lab installed.
-You can connect to the virtual machine with SSH. Port 22 is accessible.
+This template allows you to deploy an Ubuntu 20.04 LTS VM with docker, docker-compose, repo2docker, anaconda (including jupyter), git and jdk11 (including jshell).
+You can connect to the virtual machine with SSH (port 22 is accessible).
 
 This is meant only for development / training purposes. Port 8888 is accessible for notebooks.
