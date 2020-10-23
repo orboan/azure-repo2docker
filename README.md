@@ -1,4 +1,4 @@
-# Simple deployment of an Ubuntu VM with training tools for programming in python and java
+# Simple azure deployment of an Ubuntu VM with training tools for programming in python and java
 
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Forboan%2Fazure-repo2docker%2Fmaster%2Fazuredeploy.json)
 
