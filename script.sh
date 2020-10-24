@@ -63,7 +63,9 @@ EOF
 python3 -m pip install jupyter-repo2docker
 su -c "cd $HOME && $HOME/anaconda/bin/conda install -c conda-forge ruamel.yaml -y" $USER
 sudo apt install default-jdk -y
-echo 'alias jshell="jshell --start PRINTING"' >> $HOME/.bashrc
+echo 'echo "$USER:$USER" | sudo chpasswd' > $HOME/.reset_password
+chmod +x $HOME/.reset_password
+echo 'alias jsh="jshell --start PRINTING"' >> $HOME/.bashrc
 source $HOME/.bashrc
 cd /tmp
 su -c "cd $HOME && $HOME/anaconda/bin/conda config --add channels conda-forge && $HOME/anaconda/bin/conda create --name scijava scijava-jupyter-kernel -y" $USER
