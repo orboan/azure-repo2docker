@@ -68,11 +68,16 @@ chmod +x $HOME/.reset_password
 echo 'alias jsh="jshell --start PRINTING"' >> $HOME/.bashrc
 source $HOME/.bashrc
 cd /tmp
-su -c "cd $HOME && $HOME/anaconda/bin/conda config --add channels conda-forge && $HOME/anaconda/bin/conda create --name scijava scijava-jupyter-kernel -y" $USER
-su -c "cd $HOME && eval \"$($HOME/anaconda/bin/conda shell.bash hook)\" && conda activate scijava; conda install -c anaconda jupyter -y" $USER
+su -c "cd $HOME && $HOME/anaconda/bin/conda config --add channels conda-forge && $HOME/anaconda/bin/conda create --name java scijava-jupyter-kernel -y" $USER
+su -c "cd $HOME && eval \"$($HOME/anaconda/bin/conda shell.bash hook)\" && conda activate java; conda install -c anaconda jupyter -y" $USER
 su $USER <<'EOF'
+USER=training
+HOME=/home/$USER
 IJAVA_VERSION=1.3.0
+cd $HOME && eval \"$($HOME/anaconda/bin/conda shell.bash hook)\" && conda activate java
+cd /tmp
 wget https://github.com/SpencerPark/IJava/releases/download/v${IJAVA_VERSION}/ijava-${IJAVA_VERSION}.zip
 unzip ./ijava-${IJAVA_VERSION}.zip
+python3 install.py --sys-prefix
 EOF
 exit 0
