@@ -74,7 +74,9 @@ su $USER <<'EOF'
 USER=training
 HOME=/home/$USER
 IJAVA_VERSION=1.3.0
-cd $HOME && eval \"$($HOME/anaconda/bin/conda shell.bash hook)\" && conda activate java
+cd $HOME 
+eval "$($HOME/anaconda/bin/conda shell.bash hook)" 
+conda activate java
 cd /tmp
 wget https://github.com/SpencerPark/IJava/releases/download/v${IJAVA_VERSION}/ijava-${IJAVA_VERSION}.zip
 unzip ./ijava-${IJAVA_VERSION}.zip
