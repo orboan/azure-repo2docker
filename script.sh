@@ -75,7 +75,7 @@ USER=training
 HOME=/home/$USER
 IJAVA_VERSION=1.3.0
 cd $HOME 
-conda create -n java11 openjdk=11 jupyter jupyterlab -y
+$HOME/anaconda/bin/conda create -n java11 openjdk=11 jupyter jupyterlab -y
 eval "$($HOME/anaconda/bin/conda shell.bash hook)" 
 conda activate java11
 cd /tmp
@@ -84,6 +84,6 @@ unzip ./ijava-${IJAVA_VERSION}.zip
 #conda install -c anaconda jupyter -y
 #conda install -c anaconda jupyterlab -y
 python3 install.py --sys-prefix
-conda create -n bio biopython
+$HOME/anaconda/bin/conda create -n bio biopython
 EOF
 exit 0
