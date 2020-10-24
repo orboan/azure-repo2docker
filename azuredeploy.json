@@ -101,32 +101,6 @@
               "sourcePortRange": "*",
               "destinationAddressPrefix": "*"
             }
-          },
-          {
-            "name": "default-allow-8888",
-            "properties": {
-              "priority": 1001,
-              "access": "Allow",
-              "direction": "Inbound",
-              "destinationPortRange": "8888",
-              "protocol": "Tcp",
-              "sourceAddressPrefix": "*",
-              "sourcePortRange": "*",
-              "destinationAddressPrefix": "*"
-            }
-          },
-                    {
-            "name": "default-allow-57279",
-            "properties": {
-              "priority": 1002,
-              "access": "Allow",
-              "direction": "Inbound",
-              "destinationPortRange": "57279",
-              "protocol": "Tcp",
-              "sourceAddressPrefix": "*",
-              "sourcePortRange": "*",
-              "destinationAddressPrefix": "*"
-            }
           }
         ]
       }
@@ -194,7 +168,7 @@
       ],
       "properties": {
         "hardwareProfile": {
-          "vmSize": "Standard_B1s"
+          "vmSize": "Standard_B1ms"
         },
         "osProfile": {
           "computerName": "[variables('vmName')]",
