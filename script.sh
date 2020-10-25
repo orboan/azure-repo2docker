@@ -75,14 +75,15 @@ USER=training
 HOME=/home/$USER
 IJAVA_VERSION=1.3.0
 cd $HOME 
+$HOME/anaconda/bin/conda env remove -y -n java11 || rm -rf $HOME/anaconda3/envs/java11 || true
 $HOME/anaconda/bin/conda create -n java11 openjdk=11 jupyter jupyterlab -y
 eval "$($HOME/anaconda/bin/conda shell.bash hook)" 
 conda activate java11
 cd /tmp
 wget -O ijava-${IJAVA_VERSION}.zip https://github.com/SpencerPark/IJava/releases/download/v${IJAVA_VERSION}/ijava-${IJAVA_VERSION}.zip
-unzip ./ijava-${IJAVA_VERSION}.zip
+unzip -o ./ijava-${IJAVA_VERSION}.zip
 python3 install.py --sys-prefix
-$HOME/anaconda/bin/conda create -n bio biopython
+$HOME/anaconda/bin/conda create -n bio biopython -y
 jupyter notebook --generate-config
 echo "c.NotebookApp.password = u'argon2:\$argon2id\$v=19\$m=10240,t=10,p=8\$KBLVkhXy9jv0QU91rvPDHg\$qXEdPRvZMIwpEdxWRHwnrg'" >> $HOME/.jupyter/jupyter_notebook_config.py
 EOF
