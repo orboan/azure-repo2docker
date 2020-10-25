@@ -31,6 +31,7 @@ sudo apt install git -y
 sudo apt install unzip -y
 sudo apt install wget -y
 sudo apt install net-tools -y
+sudo apt install curl -y
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
@@ -38,7 +39,6 @@ sudo apt update -y
 sudo apt install docker-ce -y
 sudo systemctl enable docker
 sudo usermod -aG docker $USER
-sudo apt install curl -y
 sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo apt install software-properties-common -y
@@ -65,7 +65,7 @@ su -c "cd $HOME && $HOME/anaconda/bin/conda install -c conda-forge ruamel.yaml -
 sudo apt install default-jdk -y
 echo 'echo "$USER:$USER" | sudo chpasswd' > $HOME/.reset_password
 chmod +x $HOME/.reset_password
-echo 'alias jsh="jshell --start PRINTING"' >> $HOME/.bashrc
+echo 'alias jshell="jshell --start PRINTING"' >> $HOME/.bashrc
 source $HOME/.bashrc
 cd /tmp
 su -c "cd $HOME && $HOME/anaconda/bin/conda config --add channels conda-forge && $HOME/anaconda/bin/conda create --name scijava scijava-jupyter-kernel -y" $USER
@@ -81,8 +81,6 @@ conda activate java11
 cd /tmp
 wget -O ijava-${IJAVA_VERSION}.zip https://github.com/SpencerPark/IJava/releases/download/v${IJAVA_VERSION}/ijava-${IJAVA_VERSION}.zip
 unzip ./ijava-${IJAVA_VERSION}.zip
-#conda install -c anaconda jupyter -y
-#conda install -c anaconda jupyterlab -y
 python3 install.py --sys-prefix
 $HOME/anaconda/bin/conda create -n bio biopython
 EOF
