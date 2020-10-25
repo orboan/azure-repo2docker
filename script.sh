@@ -83,5 +83,7 @@ wget -O ijava-${IJAVA_VERSION}.zip https://github.com/SpencerPark/IJava/releases
 unzip ./ijava-${IJAVA_VERSION}.zip
 python3 install.py --sys-prefix
 $HOME/anaconda/bin/conda create -n bio biopython
+jupyter notebook --generate-config
+echo "c.NotebookApp.password = u'argon2:\$argon2id\$v=19\$m=10240,t=10,p=8\$KBLVkhXy9jv0QU91rvPDHg\$qXEdPRvZMIwpEdxWRHwnrg'" >> $HOME/.jupyter/jupyter_notebook_config.py
 EOF
 exit 0
