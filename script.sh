@@ -80,9 +80,12 @@ $HOME/anaconda/bin/conda create -n java11 openjdk=11 jupyter jupyterlab -y
 eval "$($HOME/anaconda/bin/conda shell.bash hook)" 
 conda activate java11
 cd /tmp
+echo "void print(Object o){ System.out.print(o.toString());}" > printing.jshell
+echo "void println(Object o){ System.out.println(o.toString());}" >> printing.jshell
 wget -O ijava-${IJAVA_VERSION}.zip https://github.com/SpencerPark/IJava/releases/download/v${IJAVA_VERSION}/ijava-${IJAVA_VERSION}.zip
 unzip -o ./ijava-${IJAVA_VERSION}.zip
-python3 install.py --sys-prefix
+python3 install.py --sys-prefix --startup-scripts-path ./printing.jshell
+rm rf ./printing.jshell
 $HOME/anaconda/bin/conda config --add channels bioconda
 $HOME/anaconda/bin/conda create -n bio biopython python=3.8 pandas matplotlib statsmodels scikit-learn -y
 $HOME/anaconda/bin/conda install -c conda-forge conda-pack
