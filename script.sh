@@ -18,9 +18,9 @@ then
         echo "Password changed for user ${USER}"
         fi
         sudo usermod -aG sudo $USER
-        sudo su - $USER
+        #sudo su - $USER
 fi
-exit
+#exit
 sudo systemctl stop apparmor
 sudo systemctl disable apparmor
 sudo ufw disable
