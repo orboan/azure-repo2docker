@@ -21,6 +21,7 @@ then
         #sudo su - $USER
 fi
 #exit
+sudo echo "nameserver 1.1.1.1" >> /etc/resolv.conf
 sudo systemctl stop apparmor
 sudo systemctl disable apparmor
 sudo ufw disable
