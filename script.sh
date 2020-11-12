@@ -20,6 +20,7 @@ then
         sudo usermod -aG sudo $USER
         sudo su - $USER
 fi
+exit
 sudo systemctl stop apparmor
 sudo systemctl disable apparmor
 sudo ufw disable
